@@ -1,5 +1,4 @@
 <?php
-
 $nombre = "";
 $imagen = "";
 $precio = 10;
@@ -18,7 +17,7 @@ $tipo = "";
 
 <article class="producto">
     <h2 class="producto_nombre"><?php echo $producto_nombre; ?></h2>
-    <img src="<?php echo $imagen; ?>" alt= <?php echo $nombre; ?>" width="200">
+    <img class = "producto_imagen" src="<?php echo $imagen; ?>" alt= <?php echo $nombre; ?>" width="200">
     <p><strong>Precio:</strong> €<?php echo number_format($precio, 2); ?></p>
     <p><?php echo $descripcion; ?></p>
     <p><?php echo $tipo; ?>
