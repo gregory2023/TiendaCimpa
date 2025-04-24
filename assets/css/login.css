@@ -1,0 +1,134 @@
+/* Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Fondo y cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* Contenedor del login */
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 320px;
+}
+
+/* Logo */
+.login-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* Inputs */
+.login-container input {
+    width: 90%;
+    padding: 10px; 
+    margin: 10px 0; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; 
+}
+
+/* Botón */
+.login-container button {
+    background: #D71920;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0; 
+}
+
+.login-container button:hover {
+    background: #F16522;
+}
+
+/* Animación de fondo */
+@keyframes rotate {
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+.rainbow {
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.rainbow::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    left: -50%;
+    top: -50%;
+    width: 200%;
+    height: 200%;
+    background-color: #D71920;
+    background-repeat: no-repeat;
+    background-size: 50% 50%, 50% 50%;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-image: 
+        linear-gradient(#D71920, #D71920), 
+        linear-gradient(#ef7d01, #ef7d01),
+        linear-gradient(#D71920, #D71920), 
+        linear-gradient(#ef7d01, #ef7d01);
+    animation: rotate 4s linear infinite;
+}
+
+.rainbow::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    background: white;
+    border-radius: 5px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 15px;
+    }
+
+    .login-container h2 {
+        font-size: 1.2rem;
+    }
+
+    .login-container input,
+    .login-container button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .rainbow {
+        padding: 1rem;
+    }
+}

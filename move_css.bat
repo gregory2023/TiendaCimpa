@@ -1,0 +1,1 @@
+move *.css assets\css
