@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";      
+$host = "localhost:3306";
 $usuario = "root";       
 $contrasena = ""; // contraseña del usuario
 $base_de_datos = "BD_Tienda_Cimpa"; 
@@ -11,7 +11,7 @@ $conn = new mysqli($host, $usuario, $contrasena, $base_de_datos);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 } else {
-    echo "Conexión exitosa a la base de datos"; // Mensaje de éxito
+
 }
 
 // Opcional: establecer codificación
