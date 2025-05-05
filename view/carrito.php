@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras</title>
-    <link rel="stylesheet" href="/assets/css/carrito.css">
-    
-    <!-- SweetAlert2 para alertas bonitas -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+    <link rel="stylesheet" href="../assets/css/carrito.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         function actualizarPuntos(id, precio) {
@@ -25,7 +24,7 @@
                 totalElemento.innerText = total;
                 totalBoton.innerText = total;
             } else {
-                console.log("No puedes superar los 20 puntos.");
+                console.log("No puedes superar los 20 puntos para el producto con ID " + id + ".");
             }
         }
 
@@ -44,14 +43,14 @@
                 totalElemento.innerText = total;
                 totalBoton.innerText = total;
             } else {
-                console.log("No puedes bajar de 1 punto.");
+                console.log("No puedes bajar de 1 punto para el producto con ID " + id + ".");
             }
         }
 
         function mostrarConfirmacion() {
             let confirmacionDiv = document.getElementById("confirmacion-compra");
+            let totalPuntos = document.getElementById("total-puntos").innerText;
 
-            // Mostrar los botones de confirmación
             confirmacionDiv.innerHTML = `
                 <div style="
                     margin-top: 15px;
@@ -62,10 +61,10 @@
                     border-radius: 5px;
                     text-align: center;
                     font-size: 16px;">
-                    ¿Seguro que quieres confirmar la compra?
+                    ¿Seguro que quieres confirmar la compra por <strong>${totalPuntos} CIMPA COINS</strong>?
                     <br>
                     <button onclick="confirmarCompra()" style="
-                        margin-top: 10px; 
+                        margin-top: 10px;
                         padding: 8px 12px;
                         background-color: #28a745;
                         color: white;
@@ -75,7 +74,7 @@
                         ✅ Confirmar
                     </button>
                     <button onclick="cancelarCompra()" style="
-                        margin-top: 10px; 
+                        margin-top: 10px;
                         padding: 8px 12px;
                         background-color: #dc3545;
                         color: white;
@@ -85,7 +84,7 @@
                         ❌ Cancelar
                     </button>
                 </div>
-            `;
+            `
         }
 
         function cancelarCompra() {
@@ -94,6 +93,9 @@
 
         function confirmarCompra() {
             document.getElementById("confirmacion-compra").innerHTML = ""; // Oculta los botones
+
+            // Aquí podrías enviar la información de la compra al servidor
+            // (por ejemplo, usando AJAX)
 
             // Mostrar alerta chula con SweetAlert2
             Swal.fire({
@@ -107,56 +109,51 @@
     </script>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <img src="assets/img/logo.png" alt="Logo" class="logo">
-            <a href="Menu.html">
+<div class="container">
+    <div class="header">
+        <img src="../assets/img/logo.png" alt="Logo" class="logo">
+        <a href="menu.php">
             <button class="menu2">VOLVER</button>
-            </a>
-        </div>
-
-        <div class="cart">
-            <div class="product">
-                    <img src="assets/img/camiseta_cimpa.png" alt="Camiseta Cimpa" class="clickable">
-                    <h3 class="clickable">Camiseta Cimpa</h3>
-                <div class="counter">
-                    <button onclick="restarPuntos(1, 200)">-</button>
-                    <span id="cantidad-1">1</span>
-                    <button onclick="actualizarPuntos(1, 200)">+</button>
-                </div>
-                <p>200 CIMPA COINS</p>
-            </div>
-            <div class="product">
-               
-                    <img src="assets/img/taza_cimpa.png" alt="Taza Cimpa" class="clickable">
-                    <h3 class="clickable">Taza Cimpa</h3>
-                <div class="counter">
-                    <button onclick="restarPuntos(2, 22)">-</button>
-                    <span id="cantidad-2">1</span>
-                    <button onclick="actualizarPuntos(2, 22)">+</button>
-                </div>
-                <p>50 CIMPA COINS</p>
-            </div>
-
-            <div class="product">
-                    <img src="assets/img/bolsa_cimpa.png" alt="Bolsa Cimpa" class="clickable">
-                    <h3 class="clickable">Bolsa Cimpa</h3>
-                <div class="counter">
-                    <button onclick="restarPuntos(3, 20)">-</button>
-                    <span id="cantidad-3">1</span>
-                    <button onclick="actualizarPuntos(3, 20)">+</button>
-                </div>
-                <p>20 CIMPA COINS</p>
-            </div>
-        </div>
-
-        <div class="payment">
-            <h3>Total: <span id="total-puntos">242</span> CIMPA COINS</h3>
-            <button class="menu2" onclick="mostrarConfirmacion()">CONFIRMAR COMPRA (<span id="confirmar-total">242</span> CIMPA COINS)</button>
-            
-            <!-- Aquí se mostrará la confirmación con los botones -->
-            <div id="confirmacion-compra"></div>
-        </div>
+        </a>
     </div>
+
+    <div class="cart">
+        <?php
+                include '../config/conexionBd.php';
+
+                $sql = "SELECT id_producto, nombre, imagen, precio_cinpacoin FROM Productos WHERE stock > 0";
+        $result = $conn->query($sql);
+
+        $totalPuntos = 0;
+
+        if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+        echo '<div class="product">';
+        echo '<img src="' . htmlspecialchars($row["imagen"]) . '" alt="' . htmlspecialchars($row["nombre"]) . '" class="clickable">';
+        echo '<h3 class="clickable">' . htmlspecialchars($row["nombre"]) . '</h3>';
+        echo '<div class="counter">';
+            echo '<button onclick="restarPuntos(' . $row["id_producto"] . ', ' . $row["precio_cinpacoin"] . ')">-</button>';
+            echo '<span id="cantidad-' . $row["id_producto"] . '">1</span>';
+            echo '<button onclick="actualizarPuntos(' . $row["id_producto"] . ', ' . $row["precio_cinpacoin"] . ')">+</button>';
+            echo '</div>';
+        echo '<p>' . htmlspecialchars($row["precio_cinpacoin"]) . ' CIMPA COINS</p>';
+        echo '</div>';
+        $totalPuntos += $row["precio_cinpacoin"]; // Suma el precio inicial (asumiendo cantidad 1)
+        }
+        } else {
+        echo "<p>No hay productos disponibles en este momento.</p>";
+        }
+
+        $conn->close();
+        ?>
+    </div>
+
+    <div class="payment">
+        <h3>Total: <span id="total-puntos"><?php echo htmlspecialchars($totalPuntos); ?></span> CIMPA COINS</h3>
+        <button class="menu2" onclick="mostrarConfirmacion()">CONFIRMAR COMPRA (<span id="confirmar-total"><?php echo htmlspecialchars($totalPuntos); ?></span> CIMPA COINS)</button>
+
+        <div id="confirmacion-compra"></div>
+    </div>
+</div>
 </body>
 </html>
