@@ -11,7 +11,7 @@
 // Asegúrate de que esta ruta sea correcta a tu archivo de conexión
 include '../config/conexionBd.php';
 
-// Consulta para obtener el saldo del empleado con ID 1
+// C obtener el saldo del empleado 
 $sql_monedero = "SELECT saldo_cinpacoin FROM Monedero WHERE id_empleado = 1";
 $result_monedero = $conn->query($sql_monedero);
 
@@ -21,7 +21,7 @@ if ($result_monedero && $result_monedero->num_rows > 0) {
     $saldo_empleado = $row_monedero["saldo_cinpacoin"];
 }
 
-// Consulta para obtener los dos primeros productos
+// Consulta p productos
 $sql_productos = "SELECT nombre, descripcion, precio_cinpacoin, stock, imagen FROM Productos LIMIT 2";
 $result_productos = $conn->query($sql_productos);
 ?>
