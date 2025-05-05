@@ -128,9 +128,18 @@ $result_productos = $conn->query($sql_productos);
 <footer class="footerz">
     <p>
         Síguenos en
-        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener">Twitter</a> |
-        <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener">LinkedIn</a> |
-        <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener">
+    <img src="/assets/img/logox.webp" alt="Twitter" width="24" height="24">
+</a>
+|
+<a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener">
+    <img src="/assets/img/linkedin.png" alt="LinkedIn" width="24" height="24">
+</a>
+|
+<a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener">
+    <img src="/assets/img/Youtube_logo.png" alt="YouTube" width="24" height="24">
+</a>
+
     </p>
 </footer>
 </body>
