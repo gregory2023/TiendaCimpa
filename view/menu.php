@@ -135,6 +135,7 @@ $result_productos = $conn->query($sql_productos);
     <img src="../assets/img/logo_linkedin.png" alt="LinkedIn">
 </a>
 
+
 <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener">
     <img src="../assets/img/logo_youtube.png" alt="YouTube">
 </a>
