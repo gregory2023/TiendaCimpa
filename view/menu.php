@@ -27,32 +27,28 @@ $result_productos = $conn->query($sql_productos);
 ?>
 
 <header class="site-header">
-    <div class="container">
-        <a href="menu.php" class="logo">
-            <img src="../assets/img/logo.png" alt="Logo">
-        </a>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#productos">PRODUCTOS</a></li>
-                <li><a href="#quienes-somos">QUIÉNES SOMOS</a></li>
-                <li><a href="#reciclaje">RECICLAJE</a></li>
-                <li><a href="#contacto">CONTACTO</a></li>
-            </ul>
-        </nav>
-        <div class="actions">
-            <div class="search">
-                <input type="text" placeholder="Buscar">
-                <button aria-label="Buscar"></button>
-            </div>
-            <?php if ($saldo_empleado !== null): ?>
-                <div class="puntos-empleado">
-                    <span class="icono-puntos">💰</span> <?php echo htmlspecialchars(number_format($saldo_empleado, 0)); ?> Puntos
-                </div>
-            <?php endif; ?>
-            <a href="carrito.php" class="icon-btn" aria-label="Carrito">
-                <img src="../assets/img/carritologo.png" alt="Carrito" class="icon-img">
-            </a>
+    <a href="menu.php" class="logo">
+        <img src="../assets/img/logo.png" alt="Logo">
+    </a>
+    <nav class="main-nav">
+        <ul>
+            <li><a href="#productos">PRODUCTOS</a></li>
+            <li><a href="#reciclaje">RECICLAJE</a></li>
+            <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+    </nav>
+    <div class="actions">
+        <div class="search">
+            <input type="text" placeholder="Buscar">
         </div>
+        <?php if ($saldo_empleado !== null): ?>
+            <div class="puntos-empleado">
+                <span class="icono-puntos">💰</span> <?php echo htmlspecialchars(number_format($saldo_empleado, 0)); ?> Puntos
+            </div>
+        <?php endif; ?>
+        <a href="carrito.php" class="icon-btn" aria-label="Carrito">
+            <img src="../assets/img/carritologo.png" alt="Carrito" class="icon-img">
+        </a>
     </div>
 </header>
 
@@ -122,7 +118,7 @@ $result_productos = $conn->query($sql_productos);
         <p>Email: info@cimpatienda.com</p>
         <p>Teléfono: +34 123 456 789</p>
     </div>
-    <img src="../assets/img/contacto.png" alt="Contacto CIMPA" class="imagen-tienda">
+    <img src="../assets/img/contacto.png" alt="Contacto" class="imagen-tienda">
 </section>
 
 <footer class="footerz">
@@ -137,7 +133,7 @@ $result_productos = $conn->query($sql_productos);
 
 
 <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener">
-    <img src="../assests/img/logo_youtube.png" alt="YouTube">
+    <img src="../assets/img/logo_youtube.png" alt="YouTube">
 </a>
     </p>
 </footer>
