@@ -50,6 +50,7 @@ $acciones_eco = [
 ];
 ?>
 
+
 <header class="site-header bg-light shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light container">
         <a class="navbar-brand" href="menu.php">
@@ -61,7 +62,13 @@ $acciones_eco = [
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="productos.php">PRODUCTOS</a>
+                    <a class="nav-link" aria-current="page" href="productos.php">PRODUCTOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reciclaje">RECICLAJE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">CONTACTO</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center">
@@ -69,9 +76,9 @@ $acciones_eco = [
                     <input class="form-control form-control-sm" type="search" placeholder="Buscar" aria-label="Buscar">
                 </div>
                 <?php if ($saldo_empleado !== null): ?>
-                    <div class="puntos-empleado bg-success text-white rounded-pill px-3 py-2 me-2">
+                    <a href="huellaCarbono.php" class="puntos-empleado bg-success text-white rounded-pill px-3 py-2 me-2 text-decoration-none">
                         <span class="icono-puntos">💰</span> <?php echo htmlspecialchars(number_format($saldo_empleado, 0)); ?> Puntos
-                    </div>
+                    </a>
                 <?php endif; ?>
                 <a href="carrito.php" class="icon-btn btn btn-outline-secondary rounded-circle" aria-label="Carrito">
                     <img src="../assets/img/carritologo.png" alt="Carrito" height="25">
@@ -150,12 +157,14 @@ $acciones_eco = [
     </section>
 </main>
 
-<footer class="footerz bg-dark text-light py-3 fixed-bottom">
+<footer class="footerz bg-white text-light py-3 fixed-bottom">
     <div class="container text-center">
-        Síguenos en:
-        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/logox.webp" alt="Twitter" width="24" height="24"></a>
-        <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/linkedin.png" alt="LinkedIn" width="24" height="24"></a>
-        <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/Youtube_logo.png" alt="YouTube" width="24" height="24"></a>
+        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener" class="text-light mx-2">
+            <img src="../assets/img/logo_x.png" alt="Twitter" width="34" height="34"></a>
+        <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener" class="text-light mx-2">
+            <img src="../assets/img/logo_linkedin.png" alt="LinkedIn" width="34" height="34"></a>
+        <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener" class="text-light mx-2">
+            <img src="../assets/img/logo_youtube.png" alt="YouTube" width="34" height="34"></a>
     </div>
 </footer>
 

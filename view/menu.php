@@ -37,7 +37,7 @@ $result_productos = $conn->query($sql_productos);
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="productos.php">PRODUCTOS</a>
+                    <a class="nav-link" aria-current="page" href="productos.php">PRODUCTOS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#reciclaje">RECICLAJE</a>
@@ -150,7 +150,6 @@ $result_productos = $conn->query($sql_productos);
 
 <footer class="footerz bg-dark text-light py-3 fixed-bottom">
     <div class="container text-center">
-        Síguenos en:
         <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener" class="text-light mx-2">
             <img src="../assets/img/logo_x.png" alt="Twitter" width="34" height="34"></a>
         <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener" class="text-light mx-2">
