@@ -4,25 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Ecológica CIMPA</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/menu.css">
-    <style>
-        /* Estilos adicionales para ajustar la visualización de los productos */
-        .card-img-top {
-            max-height: 150px; /* Ajusta esta altura según necesites */
-            object-fit: contain; /* O cover, dependiendo de cómo quieras que se ajuste la imagen */
-        }
-        .card {
-            display: flex;
-            flex-direction: column;
-        }
-        .card-body {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-    </style>
 </head>
 <body>
 <?php
