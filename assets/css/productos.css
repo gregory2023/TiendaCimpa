@@ -1,204 +1,41 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.4;
-    color: #111;
-  }
-  
-  .container {
-    max-width: 1500px;
-    margin: 0 auto;
-    padding: 0 2px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    height: 80px;
-  }
-  
-  .logo img {
-    height: 50px;
-    display: block;
-    margin-left: 2px;
-  }
-  
-  .main-nav {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  
-  .main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 24px;
-  }
-  
-  .main-nav a {
-    text-decoration: none;
-    color: #111;
-    font-size: 14px;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  
-  .main-nav a:hover {
-    color: #555;
-  }
-  
-  .actions {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-  
-  .search {
-    position: relative;
-  }
-  
-  .search input {
-    padding: 6px 32px 6px 8px;
-    border: 1px solid #ccc;
-    border-radius: 16px;
-    font-size: 14px;
-    width: 150px;
-    transition: width 0.3s ease;
-  }
-  
-  .search input:focus {
-    width: 200px;
-    outline: none;
-    border-color: #888;
-  }
-  
-  .search button {
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    cursor: pointer;
-  }
-  
-  .icon-btn {
-    font-size: 18px;
-    color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: background 0.2s ease;
-  }
-  
-  .icon-btn:hover {
-    background: #f0f0f0;
-  }
-  
-  .icon-img {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-  }
-  
-  .footerz {
-    text-align: center;
-    padding: 16px;
-    background: #f9f9f9;
-    border-top: 1px solid #e0e0e0;
-  }
-  
-  .footerz p {
-    font-size: 14px;
-  }
-  
-  .footerz a {
-    color: #111;
-    text-decoration: none;
-    margin: 0 4px;
-  }
-  
-  .footerz a:hover {
-    text-decoration: underline;
-  }
-  
-  /* === Product Cards === */
-  
-  .product-section {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 24px;
-    padding: 40px 10px;
-    background-color: #fff;
-    justify-content: center;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .product-card {
-    flex: 0 0 auto;
-    background-color: #fefefe;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    width: 280px;
-    padding: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.2s ease;
-    scroll-snap-align: start;
-  }
-  
-  .product-card:hover {
-    transform: translateY(-4px);
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .product-card h3 {
-    font-size: 18px;
-    margin: 12px 0 4px;
-    color: #111;
-  }
-  
-  .product-card .price {
-    font-weight: bold;
-    color: #222;
-    margin-bottom: 8px;
-  }
-  
-  .product-card .description {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  
-  .product-card .type {
-    font-size: 13px;
-    color: #999;
-  }
-  
-  /* === Responsive Navigation (mantiene productos en horizontal) === */
-  
-  @media screen and (max-width: 768px) {
-    .main-nav {
-      position: static;
-      transform: none;
-    }
-  
-    .main-nav ul {
-      flex-direction: column;
-      gap: 12px;
-    }
-  
-    /* Ya no se cambia la dirección de las tarjetas */
-  }
-  
+bo/* Estilos específicos para la página de productos disponibles */
+
+.producto-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.producto-imagen {
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.producto-titulo {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.producto-descripcion {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-bottom: 0.75rem;
+  flex-grow: 1; /* Para que la descripción ocupe espacio si el contenido es corto */
+}
+
+.producto-precio {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.producto-stock {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+/* Ajustes para el botón "Añadir al Carrito" si deseas personalizarlo más */
+.agregar-carrito {
+  font-size: 0.9rem;
+}
+
+/* Puedes añadir más estilos aquí según sea necesario */
