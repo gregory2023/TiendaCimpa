@@ -134,15 +134,13 @@ $result_productos_mascota = $conn->query($sql_productos_mascota);
 <footer class="bg-dark text-light py-3 fixed-bottom">
     <div class="container text-center">
         Síguenos en:
-        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener" class="text-light mx-2">
-            <img src="../assets/img/logo_x.png" alt="Twitter" width="24" height="24"></a>
-        <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener" class="text-light mx-2">
-            <img src="../assets/img/logo_linkedin.png" alt="LinkedIn" width="24" height="24"></a>
-        <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener" class="text-light mx-2">
-            <img src="../assets/img/logo_youtube.png" alt="YouTube" width="24" height="24"></a>
+        <a href="https://twitter.com/cimpa_plm" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/logox.webp" alt="Twitter" width="24" height="24"></a>
+        <a href="https://fr.linkedin.com/company/cimpa-plm-services" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/linkedin.png" alt="LinkedIn" width="24" height="24"></a>
+        <a href="https://www.youtube.com/channel/UCvDeDvVG3vRIlao7eVTYt_A" target="_blank" rel="noopener" class="text-light mx-2"><img src="../assets/img/Youtube_logo.png" alt="YouTube" width="24" height="24"></a>
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="../assets/js/carrito.js"></script>
 </body>
 </html>

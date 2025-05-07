@@ -1,41 +1,433 @@
-bo/* Estilos específicos para la página de productos disponibles */
+/* ../assets/css/productos.css */
 
-.producto-card {
+/* --- Reset Básico & Defaults --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.6;
+  color: #333; /* Un gris oscuro más suave que el negro puro */
+  background-color: #f4f7f6; /* Un fondo global muy sutil */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 80px; /* Espacio para el footer fijo */
+}
+
+/* --- Tipografía Mejorada --- */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  font-weight: 600; /* Un poco más de peso para los encabezados */
+  line-height: 1.3;
+  color: #2c3e50; /* Un azul oscuro para encabezados */
+}
+
+h1 { /* Para "Productos Disponibles" */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem; /* Espacio debajo del título principal */
+  text-align: center; /* Centrar el título principal de la página */
+  padding-top: 1rem; /* Espacio arriba */
+}
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+}
+
+h2 { /* Para "Productos Generales", "Productos para Mascotas" */
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem; /* Espacio debajo de los títulos de sección */
+  border-bottom: 2px solid #e0e0e0; /* Una línea sutil debajo */
+  padding-bottom: 0.5rem;
+}
+@media (max-width: 768px) {
+  h2 { font-size: 1.5rem; }
+}
+
+h5.card-title, h5.producto-titulo { /* Título dentro de la tarjeta */
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #34495e; /* Un color ligeramente más suave para títulos de tarjeta */
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  color: #555; /* Color de párrafo un poco más claro */
+}
+.lead { /* Para mensajes como "No hay productos" */
+  font-size: 1.1rem;
+  color: #777;
+  text-align: center;
+  padding: 20px 0;
+}
+
+a {
+  color: #3498db; /* Un azul más brillante y moderno */
+  text-decoration: none; /* Quitar subrayado por defecto */
+  transition: color 0.2s ease-in-out;
+}
+a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+.text-decoration-none { text-decoration: none !important; }
+
+
+/* --- Contenedor Principal y Secciones --- */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+/* Breakpoints de Bootstrap */
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+/* Clases de utilidad de Bootstrap (colores, display, spacing, etc.) */
+.bg-light { background-color: #f8f9fa !important; }
+.bg-success { background-color: #1abc9c !important; } /* Un verde más moderno */
+.bg-dark { background-color: #34495e !important; } /* Un azul/gris oscuro */
+
+.text-white { color: #fff !important; }
+.text-light { color: #f8f9fa !important; }
+.text-success { color: #1abc9c !important; }
+.text-muted { color: #95a5a6 !important; } /* Un gris más suave */
+.text-center { text-align: center !important; }
+
+.fw-bold { font-weight: 600 !important; } /* Usar 600 para bold en lugar de 700 */
+
+.shadow-sm { box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important; }
+.shadow { box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,.1) !important; } /* Sombra más suave y difusa */
+
+.d-flex { display: flex !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.d-grid { display: grid !important; }
+
+/* Spacing (simplificado, Bootstrap tiene muchas más) */
+.me-2 { margin-right: .5rem !important; }
+.mb-4 { margin-bottom: 2rem !important; } /* Aumentar un poco el margen */
+.mx-2 { margin-left: .5rem !important; margin-right: .5rem !important; }
+
+.px-3 { padding-left: 1rem !important; padding-right: 1rem !important; }
+.py-2 { padding-top: .5rem !important; padding-bottom: .5rem !important; }
+.py-3 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+.py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+.gap-2 { gap: .5rem !important; }
+
+.rounded-pill { border-radius: 50rem !important; }
+.rounded-circle { border-radius: 50% !important; }
+
+.h-100 { height: 100% !important; }
+
+.fixed-bottom { position: fixed; right: 0; bottom: 0; left: 0; z-index: 1030; }
+
+/* --- Form Controls --- */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem; /* Un poco más de padding */
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
+}
+.form-control-sm {
+  padding: .25rem .5rem;
+  font-size: .875rem;
+  border-radius: .2rem;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  font-weight: 500; /* Un poco más de peso para el texto del botón */
+  line-height: 1.5;
+  color: #3498db; /* Color de texto por defecto para botones (outline) */
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid #3498db; /* Borde con el color primario */
+  padding: .5rem 1rem; /* Padding aumentado */
+  font-size: 0.9rem;
+  border-radius: .25rem;
+  transition: all .15s ease-in-out;
+}
+.btn:hover {
+  color: #fff;
+  background-color: #3498db;
+  border-color: #3498db;
+}
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 .2rem rgba(52,152,219,.5);
+}
+
+.btn-sm {
+  padding: .35rem .75rem;
+  font-size: .8rem;
+}
+
+.btn-outline-primary { /* Ya definido por .btn y sus colores por defecto */
+}
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+.btn-outline-secondary:hover {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+
+/* --- Navbar --- */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem 0; /* Un poco más de padding vertical en la barra */
+  background-color: #fff; /* Navbar siempre blanca, .bg-light puede ser redundante */
+  border-bottom: 1px solid #eee;
+}
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .nav-link {
+  color: #333; /* Texto más oscuro para mejor contraste */
+}
+.navbar-light .navbar-nav .nav-link:hover { color: #3498db; }
+.navbar-light .navbar-toggler { border-color: rgba(0,0,0,.1); }
+.navbar-light .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(51, 51, 51, 0.7)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+.navbar-brand img { vertical-align: middle; }
+
+.navbar-toggler {
+  padding: .25rem .75rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.navbar-nav {
   display: flex;
   flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+.navbar-nav .nav-link {
+  padding: .5rem 1rem; /* Padding para links del nav */
+  font-weight: 500;
 }
 
-.producto-imagen {
-  max-height: 200px;
-  object-fit: contain;
+/* Comportamiento de .navbar-expand-lg */
+@media (min-width: 992px) {
+  .navbar-expand-lg { flex-wrap: nowrap; justify-content: flex-start; }
+  .navbar-expand-lg .navbar-nav { flex-direction: row; }
+  .navbar-expand-lg .navbar-toggler { display: none; }
+  .navbar-expand-lg .navbar-collapse { display: flex !important; flex-basis: auto; }
 }
 
-.producto-titulo {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.navbar-collapse {
+  align-items: center;
+  width: 100%;
+}
+.collapse:not(.show) { display: none; }
+
+
+/* --- Grid System (Row/Col) --- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* Para g-4 (gap de 1.5rem o 24px): (1.5rem * 0.5 = 12px) */
+  --bs-gutter-x: 1.5rem; /* Variable para el gap horizontal */
+  --bs-gutter-y: 1.5rem; /* Variable para el gap vertical */
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+}
+.row > * { /* Columnas hijas directas */
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
 }
 
-.producto-descripcion {
-  font-size: 0.9rem;
-  color: #6c757d;
-  margin-bottom: 0.75rem;
-  flex-grow: 1; /* Para que la descripción ocupe espacio si el contenido es corto */
+.col { flex: 1 0 0%; }
+
+.row-cols-1 > * { flex: 0 0 auto; width: 100%; }
+@media (min-width: 768px) { /* md */
+  .row-cols-md-2 > * { flex: 0 0 auto; width: 50%; }
+}
+@media (min-width: 992px) { /* lg */
+  .row-cols-lg-3 > * { flex: 0 0 auto; width: 33.3333333333%; }
 }
 
-.producto-precio {
-  font-size: 1rem;
+
+/* --- Cards Mejoradas --- */
+.card, .producto-card { /* Aplica a ambas si .producto-card es la misma que .card */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #e0e0e0; /* Borde más sutil */
+  border-radius: .35rem; /* Bordes un poco más redondeados */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.card:hover, .producto-card:hover {
+  transform: translateY(-5px); /* Efecto de elevación */
+  box-shadow: 0 0.75rem 1.5rem rgba(0,0,0,.08); /* Sombra más pronunciada al hacer hover */
+}
+
+.card-img-top, .producto-imagen {
+  width: 100%;
+  height: 220px; /* Altura consistente para la imagen */
+  object-fit: contain; /* Muestra la imagen completa, puede dejar espacios si no coincide aspect-ratio */
+  background-color: #f8f9fa; /* Fondo para el área de imagen si la imagen no la llena */
+  border-top-left-radius: calc(.35rem - 1px);
+  border-top-right-radius: calc(.35rem - 1px);
+  padding: 10px; /* Un pequeño padding alrededor de la imagen dentro de su contenedor */
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem; /* Más padding interno en la tarjeta */
+  display: flex;
+  flex-direction: column; /* Para alinear el botón al fondo */
+}
+
+.card-text, .producto-descripcion {
+  font-size: 0.875rem; /* Descripción un poco más pequeña */
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  flex-grow: 1; /* Hace que la descripción empuje el contenido inferior hacia abajo */
+}
+
+.producto-precio { /* Contenedor del precio */
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1abc9c; /* Usar el verde moderno */
   margin-bottom: 0.25rem;
 }
+.producto-precio small { /* Si la clase .text-success y .fw-bold están en el small */
+  font-weight: inherit; /* Hereda el peso del padre .producto-precio */
+  color: inherit; /* Hereda el color del padre */
+}
+
 
 .producto-stock {
   font-size: 0.8rem;
-  color: #6c757d;
+  color: #7f8c8d; /* Un gris azulado */
   margin-bottom: 1rem;
 }
 
-/* Ajustes para el botón "Añadir al Carrito" si deseas personalizarlo más */
-.agregar-carrito {
+/* Estilo para el contenedor del botón d-grid gap-2 */
+.d-grid.gap-2 { /* Si solo hay un botón, d-grid puede ser innecesario */
+  /* No se necesita mucho aquí si el botón toma el ancho completo o se centra */
+}
+.card-body .d-grid .btn { /* Asegurar que el botón en la tarjeta se vea bien */
+  padding: 0.6rem 1rem; /* Padding específico para botón de tarjeta */
   font-size: 0.9rem;
 }
 
-/* Puedes añadir más estilos aquí según sea necesario */
+/* --- Clases Personalizadas Específicas --- */
+.site-header {
+  /* .bg-light y .shadow-sm ya aplican. No se necesita mucho más aquí. */
+}
+
+.puntos-empleado {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  padding: .4rem .8rem; /* Ajustar padding */
+  font-size: 0.85rem;
+}
+.puntos-empleado:hover {
+  opacity: 0.9;
+  color: #fff; /* Mantener texto blanco en hover */
+}
+.icono-puntos { margin-right: .35rem; }
+
+.icon-btn.btn.btn-outline-secondary.rounded-circle {
+  width: 40px; /* Tamaño fijo */
+  height: 40px;
+  padding: 0; /* Quitar padding para que el icono se centre */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn img {
+  height: 20px; /* Ajustar tamaño del icono dentro del botón */
+  width: auto;
+}
+
+/* --- Footer --- */
+footer.fixed-bottom { /* .bg-dark, .text-light, .py-3, .text-center ya aplican */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  z-index: 1020;
+}
+footer.fixed-bottom a.text-light:hover {
+  color: #bdc3c7 !important; /* Un gris más claro para hover sobre fondo oscuro */
+}
+footer.fixed-bottom img {
+  transition: opacity 0.2s ease-in-out;
+}
+footer.fixed-bottom img:hover {
+  opacity: 0.75;
+}
+
+/* --- Media Queries para ajustes finos --- */
+@media (max-width: 768px) {
+  body { padding-bottom: 120px; } /* Más espacio si el footer tiene más contenido en móvil */
+  .card-body { padding: 1rem; }
+  .producto-imagen, .card-img-top { height: 180px; }
+}
+
+@media (max-width: 576px) {
+  h1 { margin-bottom: 1rem; }
+  h2 { margin-bottom: 1rem; }
+  .producto-imagen, .card-img-top { height: 160px; }
+  .btn { padding: .4rem .8rem; font-size: .85rem; } /* Botones más pequeños en móvil */
+}
