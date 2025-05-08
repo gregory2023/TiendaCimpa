@@ -1,12 +1,9 @@
-
-
 body {
     font-family: 'Arial', sans-serif;
-    color: #333;
-    background-color: #f4f7f6; /
+    color: var(--gris-texto);
+    background-color: var(--gris-fondo);
     padding-bottom: 80px;
 }
-
 
 .site-header {
     border-bottom: 1px solid #e9ecef;
@@ -20,12 +17,11 @@ body {
     margin-right: 5px;
 }
 
-
 .huella-header {
-    background-color: #e0f2f1;
+    background-color: var(--verde-claro);
     padding: 40px 0;
     margin-bottom: 30px;
-    color: #004d40;
+    color: var(--verde-oscuro);
 }
 
 .huella-header h1 {
@@ -43,25 +39,25 @@ body {
 .eco-stats {
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    background-color: #fff; /* Fondo blanco para las tarjetas */
+    box-shadow: 0 4px 15px var(--sombra-suave);
+    background-color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .eco-stats:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px var(--sombra-hover);
 }
 
 .eco-stats .card-title {
     font-size: 1.5rem;
-    color: #00796b; /* Un verde más oscuro para títulos */
+    color: #00796b;
     margin-bottom: 15px;
 }
 
 .eco-stats .display-4 {
     font-weight: bold;
-    color: #2e7d32; /* Color verde para el dato principal */
+    color: var(--verde-principal);
 }
 
 .eco-stats .card-text {
@@ -72,7 +68,7 @@ body {
 .progress {
     height: 25px;
     border-radius: 5px;
-    background-color: #e0e0e0; /* Fondo de la barra de progreso */
+    background-color: #e0e0e0;
 }
 
 .progress-bar {
@@ -80,7 +76,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* Estilos para la insignia de nivel ecológico */
+/* Insignia de nivel ecológico */
 .eco-badge {
     padding: 10px 20px;
     border-radius: 20px;
@@ -90,16 +86,15 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Colores para las insignias (Bootstrap ya define bg-success, bg-danger, etc. pero puedes ajustarlos si es necesario) */
+/* Colores personalizados para insignias */
 .bg-danger { background-color: #d9534f !important; }
 .bg-warning { background-color: #f0ad4e !important; }
 .bg-info { background-color: #5bc0de !important; }
-.bg-success { background-color: #5cb85c !important; } /* Mantenemos el de Bootstrap o lo personalizamos */
+.bg-success { background-color: var(--verde-secundario) !important; }
 
-
-/* Estilos para los iconos de acciones ecológicas */
+/* Iconos de acciones ecológicas */
 .eco-icon {
-    font-size: 3rem; /* Tamaño grande para los iconos emoji */
+    font-size: 3rem;
     margin-bottom: 15px;
     line-height: 1;
 }
@@ -107,11 +102,11 @@ body {
 .eco-stats h5 {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #004d40;
+    color: var(--verde-oscuro);
     margin-bottom: 8px;
 }
 
-/* Estilos para la sección de información de carbono y consejos */
+/* Sección de información de carbono y consejos */
 .carbon-info {
     background-color: #ffffff;
     padding: 30px;
@@ -122,22 +117,22 @@ body {
 
 .carbon-info h4 {
     font-size: 1.8rem;
-    color: #004d40;
+    color: var(--verde-oscuro);
     margin-bottom: 25px;
     text-align: center;
 }
 
 .eco-tip {
-    background-color: #fafffa; /* Un fondo muy claro para cada consejo */
+    background-color: #fafffa;
     padding: 20px;
     margin-bottom: 20px;
-    border-left: 5px solid #5cb85c; /* Borde izquierdo verde para destacar */
+    border-left: 5px solid var(--verde-secundario);
     border-radius: 5px;
 }
 
 .eco-tip h5 {
     font-size: 1.3rem;
-    color: #2e7d32; /* Verde para los títulos de los consejos */
+    color: var(--verde-principal);
     margin-bottom: 10px;
 }
 
@@ -147,12 +142,16 @@ body {
     line-height: 1.6;
 }
 
-/* Estilos para el footer */
+/* Footer */
 .footerz {
-    /* fixed-bottom ya está aplicado por Bootstrap, pero puedes añadir otros estilos aquí si es necesario */
-    border-top: 1px solid #444; /* Línea sutil arriba del footer */
+    border-top: 1px solid #444;
     padding-top: 15px;
     padding-bottom: 15px;
+    background-color: #ffffff;
+    color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footerz a img {
@@ -161,38 +160,6 @@ body {
 
 .footerz a:hover img {
     transform: scale(1.1);
-}
-
-/* Ajustes responsivos si son necesarios */
-@media (max-width: 768px) {
-    .huella-header h1 {
-        font-size: 2.2rem;
-    }
-    .huella-header .lead {
-        font-size: 1.1rem;
-    }
-    .eco-stats .display-4 {
-        font-size: 2.5rem; /* Reducir tamaño del número de la huella en móviles */
-    }
-    .eco-badge {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-    .carbon-info h4 {
-        font-size: 1.5rem;
-    }
-    .eco-tip h5 {
-        font-size: 1.15rem;
-    }
-    
-/* Footer */
-.footerz {
-    background-color: #ffffff;
-    color: white;
-    padding: 15px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
 
 .footerz .container {
@@ -210,6 +177,7 @@ body {
     transform: scale(1.2);
 }
 
+/* Clases auxiliares */
 .text-light {
     color: white;
 }
@@ -218,4 +186,26 @@ body {
     margin-left: 8px;
     margin-right: 8px;
 }
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .huella-header h1 {
+        font-size: 2.2rem;
+    }
+    .huella-header .lead {
+        font-size: 1.1rem;
+    }
+    .eco-stats .display-4 {
+        font-size: 2.5rem;
+    }
+    .eco-badge {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+    .carbon-info h4 {
+        font-size: 1.5rem;
+    }
+    .eco-tip h5 {
+        font-size: 1.15rem;
+    }
 }
