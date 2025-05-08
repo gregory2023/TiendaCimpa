@@ -8,6 +8,28 @@ body {
 .site-header {
     border-bottom: 1px solid #e9ecef;
 }
+.puntos-empleado {
+    padding: 10px 10px;
+    color: #000000; /* Verde sobrio */
+    background-color: #ffffff; /* Verde claro neutro */
+    border: 1px solid #7d7d7d;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease-in-out;
+    margin: 0 8px;
+    text-decoration: none;
+    display: inline-block;
+}
+.puntos-empleado:hover {
+    background-color: #e0ffe0; /* Un verde claro diferente al original */
+    color: #004400; /* Un tono más oscuro para el texto */
+    border-color: #559955; /* Cambio sutil en el borde */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+} 
+
 
 .puntos-empleado {
     font-weight: bold;
@@ -90,7 +112,7 @@ body {
 .bg-danger { background-color: #d9534f !important; }
 .bg-warning { background-color: #f0ad4e !important; }
 .bg-info { background-color: #5bc0de !important; }
-.bg-success { background-color: var(--verde-secundario) !important; }
+.bg-success {  background-color: #e0ffe0;}
 
 /* Iconos de acciones ecológicas */
 .eco-icon {

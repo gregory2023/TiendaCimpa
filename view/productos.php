@@ -41,7 +41,7 @@ $result_productos_mascota = $conn->query($sql_productos_mascota);
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="productos.php">PRODUCTOS</a>
+                    <a class="nav-link" aria-current="page" href="menu.php">INICIO</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="menu.php#reciclaje">RECICLAJE</a>

@@ -113,6 +113,12 @@ header nav {
     text-decoration: none;
     display: inline-block;
 }
+.puntos-empleado:hover {
+    background-color: #e0ffe0; /* Un verde claro diferente al original */
+    color: #004400; /* Un tono más oscuro para el texto */
+    border-color: #559955; /* Cambio sutil en el borde */
+    transform: scale(1.05); /* Ligero aumento de tamaño */
+}
 
 .icon-btn {
     background: none;
