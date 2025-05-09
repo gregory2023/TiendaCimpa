@@ -1,96 +1,32 @@
+
+    /* Estilos para Huella de Carbono y Retos */
 body {
-    font-family: 'Arial', sans-serif;
-    color: var(--gris-texto);
-    background-color: var(--gris-fondo);
-    padding-bottom: 80px;
+    background-color: #f8f9fa; /* Un fondo gris claro para la página */
+    font-family: 'Inter', sans-serif; /* Usar una fuente moderna si está disponible */
 }
 
-.site-header {
-    border-bottom: 1px solid #e9ecef;
+.card.eco-stats, .card.eco-tip, .list-group-item {
+    border: none; /* Quitar bordes por defecto para un look más limpio */
+    border-radius: 0.75rem; /* Bordes más redondeados */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-.puntos-empleado {
-    padding: 10px 10px;
-    color: #000000; /* Verde sobrio */
-    background-color: #ffffff; /* Verde claro neutro */
-    border: 1px solid #7d7d7d;
-    border-radius: 8px;
+
+.card.eco-stats:hover, .list-group-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.eco-badge {
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    border-radius: 50px; /* Píldoras */
     font-weight: 500;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.25s ease-in-out;
-    margin: 0 8px;
-    text-decoration: none;
-    display: inline-block;
-}
-.puntos-empleado:hover {
-    background-color: #e0ffe0; /* Un verde claro diferente al original */
-    color: #004400; /* Un tono más oscuro para el texto */
-    border-color: #559955; /* Cambio sutil en el borde */
-    transform: scale(1.05); /* Ligero aumento de tamaño */
-} 
-
-
-.puntos-empleado {
-    font-weight: bold;
-}
-
-.icono-puntos {
-    margin-right: 5px;
-}
-
-.huella-header {
-    background-color: var(--verde-claro);
-    padding: 40px 0;
-    margin-bottom: 30px;
-    color: var(--verde-oscuro);
-}
-
-.huella-header h1 {
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.huella-header .lead {
-    font-size: 1.25rem;
-    color: #00695c;
-}
-
-/* Estilos para las tarjetas de estadísticas ecológicas */
-.eco-stats {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px var(--sombra-suave);
-    background-color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.eco-stats:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--sombra-hover);
-}
-
-.eco-stats .card-title {
-    font-size: 1.5rem;
-    color: #00796b;
-    margin-bottom: 15px;
-}
-
-.eco-stats .display-4 {
-    font-weight: bold;
-    color: var(--verde-principal);
-}
-
-.eco-stats .card-text {
-    font-size: 1rem;
-    color: #555;
 }
 
 .progress {
-    height: 25px;
-    border-radius: 5px;
-    background-color: #e0e0e0;
+    height: 28px;
+    border-radius: 0.5rem;
+    background-color: #e9ecef; /* Fondo más claro para la barra de progreso */
 }
 
 .progress-bar {
@@ -98,136 +34,102 @@ body {
     font-size: 0.9rem;
 }
 
-/* Insignia de nivel ecológico */
-.eco-badge {
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: bold;
+.eco-icon-list {
+    background-color: #e9ecef; /* Fondo para el icono */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; /* Tamaño del icono */
+    color: #495057; /* Color del icono */
+}
+
+.card-title {
+    font-weight: 500;
+}
+
+.display-2, .display-4, .display-5 { /* Ajuste de pesos para títulos grandes */
+    font-weight: 600;
+}
+
+    /* Footer */
+    .footerz {
+        background-color: #ffffff;
+        color: white;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .footerz .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footerz a {
+        margin: 0 10px;
+        transition: transform 0.3s;
+    }
+
+    .footerz a:hover {
+        transform: scale(1.2);
+    }
+
+.section-title {
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #198754; /* LÍNEA VERDE */
+    display: inline-block;
+}
+
+.section-title.text-center { /* Para centrar títulos con borde */
+    display: block;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.7em;
+    border-radius: 0.3rem;
     text-transform: uppercase;
+    font-weight: 700;
     letter-spacing: 0.5px;
 }
 
-/* Colores personalizados para insignias */
-.bg-danger { background-color: #d9534f !important; }
-.bg-warning { background-color: #f0ad4e !important; }
-.bg-info { background-color: #5bc0de !important; }
-.bg-success {  background-color: #e0ffe0;}
+.status-aprobado { background-color: #198754; color: white; }
+.status-pendiente { background-color: #ffc107; color: #212529; }
+.status-rechazado { background-color: #dc3545; color: white; }
 
-/* Iconos de acciones ecológicas */
-.eco-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    line-height: 1;
+.site-header {
+    border-bottom: 1px solid #dee2e6;
 }
 
-.eco-stats h5 {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--verde-oscuro);
-    margin-bottom: 8px;
+.puntos-empleado {
+    font-weight: 500;
 }
 
-/* Sección de información de carbono y consejos */
-.carbon-info {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    margin-top: 30px;
+.icon-btn img {
+    filter: grayscale(30%);
+    transition: filter 0.2s;
+}
+.icon-btn:hover img {
+    filter: grayscale(0%);
 }
 
-.carbon-info h4 {
-    font-size: 1.8rem;
-    color: var(--verde-oscuro);
-    margin-bottom: 25px;
-    text-align: center;
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: #f0f0f0;
 }
 
-.eco-tip {
-    background-color: #fafffa;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-left: 5px solid var(--verde-secundario);
-    border-radius: 5px;
+.eco-tip .fs-1 { /* Para los iconos de los consejos */
+    transition: transform 0.3s ease;
 }
-
-.eco-tip h5 {
-    font-size: 1.3rem;
-    color: var(--verde-principal);
-    margin-bottom: 10px;
-}
-
-.eco-tip p {
-    font-size: 1rem;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Footer */
-.footerz {
-    border-top: 1px solid #444;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background-color: #ffffff;
-    color: #333;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.footerz a img {
-    transition: transform 0.2s ease-in-out;
-}
-
-.footerz a:hover img {
+.eco-tip:hover .fs-1 {
     transform: scale(1.1);
-}
-
-.footerz .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footerz a {
-    margin: 0 10px;
-    transition: transform 0.3s;
-}
-
-.footerz a:hover {
-    transform: scale(1.2);
-}
-
-/* Clases auxiliares */
-.text-light {
-    color: white;
-}
-
-.mx-2 {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-    .huella-header h1 {
-        font-size: 2.2rem;
-    }
-    .huella-header .lead {
-        font-size: 1.1rem;
-    }
-    .eco-stats .display-4 {
-        font-size: 2.5rem;
-    }
-    .eco-badge {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-    }
-    .carbon-info h4 {
-        font-size: 1.5rem;
-    }
-    .eco-tip h5 {
-        font-size: 1.15rem;
-    }
 }
